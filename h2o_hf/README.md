@@ -7,9 +7,9 @@
 - PyTorch >= 1.12
 
 ```
-pip install crfm-helm
-pip install git+https://github.com/huggingface/transformers
-pip install lm-eval
+pip install crfm-helm==0.2.3
+pip install transformers==4.28.1
+pip install lm-eval==0.3.0
 ```
 
 

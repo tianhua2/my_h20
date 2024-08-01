@@ -8,7 +8,7 @@
 
 ```
 pip install crfm-helm
-pip install git+https://github.com/huggingface/transformers
+pip install transformers==4.33
 pip install lm-eval
 ```
 

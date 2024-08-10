@@ -13,7 +13,7 @@ import torch.nn.functional as F
 from torch.cuda.amp import autocast
 from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss
 
-from transformers.models.gpt_neox.modeling_gpt_neox import RotaryEmbedding, GPTNeoXAttention, apply_rotary_pos_emb
+from transformers.models.gpt_neox.modeling_gpt_neox import GPTNeoXRotaryEmbedding, GPTNeoXAttention, apply_rotary_pos_emb
 
 
 __all__ = ['convert_kvcache_gpt_neox_heavy_recent', 'GPTNeoXAttention_Mask']
@@ -34,7 +34,7 @@ class GPTNeoXAttention_Mask(nn.Module):
             ),
         )
         self.register_buffer("masked_bias", torch.tensor(-1e9))
-        self.rotary_emb = RotaryEmbedding(
+        self.rotary_emb = GPTNeoXRotaryEmbedding(
             self.rotary_ndims, config.max_position_embeddings, base=config.rotary_emb_base
         )
         self.register_buffer(

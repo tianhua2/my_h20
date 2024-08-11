@@ -63,7 +63,7 @@ def process_request(x, seq):
 
 
 class EvalHarnessAdaptor(LM):
-    def greedy_until(self, requests):
+    def generate_until(self, requests):
         raise Exception("unimplemented")
 
     def loglikelihood_rolling(self, requests):
